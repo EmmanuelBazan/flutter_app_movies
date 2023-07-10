@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         'homeScreen': (context) => const HomeScreen(),
-        'detailScreen': (context) => const DetailsScreen()
+        'detailScreen': (context) => DetailsScreen()
       },
       theme: ThemeData.light()
           .copyWith(appBarTheme: const AppBarTheme(color: Colors.indigo)),
