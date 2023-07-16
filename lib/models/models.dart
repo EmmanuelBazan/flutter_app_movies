@@ -1,3 +1,4 @@
+export 'package:flutter_application_movies/models/search_movie_response.dart';
 export 'package:flutter_application_movies/models/credits_response.dart';
 export 'package:flutter_application_movies/models/popular_response.dart';
 export 'package:flutter_application_movies/models/movie.dart';
