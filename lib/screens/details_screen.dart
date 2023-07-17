@@ -17,7 +17,8 @@ class DetailsScreen extends StatelessWidget {
               originalTitle: movie.originalTitle,
               posterImg: movie.fullPosterImg,
               title: movie.title,
-              vote: movie.voteAverage),
+              vote: movie.voteAverage,
+              heroId: movie.heroId!),
           _OverView(overView: movie.overview),
           CastingCards(
             movieId: movie.id,
@@ -67,13 +68,15 @@ class _Poster extends StatelessWidget {
   final String title;
   final String originalTitle;
   final double vote;
+  final String heroId;
 
   const _Poster(
       {super.key,
       required this.originalTitle,
       required this.posterImg,
       required this.title,
-      required this.vote});
+      required this.vote,
+      required this.heroId});
 
   @override
   Widget build(BuildContext context) {
@@ -84,13 +87,16 @@ class _Poster extends StatelessWidget {
       margin: const EdgeInsets.only(top: 20),
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(20),
-          child: FadeInImage(
-            placeholder: const AssetImage('assets/image_placeholder.png'),
-            image: NetworkImage(posterImg),
-            height: 150,
-            // width: 100,
+        Hero(
+          tag: heroId,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: FadeInImage(
+              placeholder: const AssetImage('assets/image_placeholder.png'),
+              image: NetworkImage(posterImg),
+              height: 150,
+              // width: 100,
+            ),
           ),
         ),
         const SizedBox(
